@@ -1,0 +1,6 @@
+.history
+# .vscode
+node_modules
+*.pyc
+*.vsix
+out

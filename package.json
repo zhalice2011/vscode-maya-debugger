@@ -1,0 +1,157 @@
+{
+	"name": "mayadebugger",
+	"displayName": "Debugger for Maya",
+	"description": "Debugging for Autodesk Maya",
+	"version": "0.0.1",
+	"license": "MIT",
+    "publisher": "zhalice2011",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/zhalice2011/vscode-maya-debugger.git"
+    },
+    "bugs": {
+      "url": "https://github.com/zhalice2011/vscode-maya-debugger/issues"
+    },
+    "homepage": "https://github.com/zhalice2011/vscode-maya-debugger#readme",
+    "scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "tslint -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"icon": "software-Maya.jpg",
+	"galleryBanner": {
+		"color": "#1e415e",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"keywords": [
+		"python",
+		"maya",
+		"debugger",
+		"autodesk maya",
+		"OpenMaya",
+		"pymel",
+		"cmds",
+		"mel"
+	],
+	"categories": [
+		"Programming Languages",
+		"Extension Packs",
+		"Snippets",
+		"Other"
+	],
+	"activationEvents": [
+		"*",
+		"onCommand:mayadebugger.debugpyFileForMaya2022AndAbove",
+		"onCommand:mayadebugger.debugpyFileForMaya2021AndBelow"
+	],
+	"main": "./out/extension.js",
+	"devDependencies": {
+		"@types/node": "^10.12.18",
+		"@types/vscode": "^1.32.0",
+		"tslint": "^5.16.0",
+		"typescript": "^5.4.3"
+	},
+	"contributes": {
+		"commands": [
+			{
+				"command": "mayadebugger.debugpyFileForMaya2022AndAbove",
+				"title": "Debug Current Python File in Maya (>=2022)",
+				"category": "Maya"
+			},
+			{
+				"command": "mayadebugger.debugpyFileForMaya2021AndBelow",
+				"title": "Debug Current Python File in Maya (<=2021)",
+				"category": "Maya"
+			}
+		],
+		"debuggers": [
+			{
+				"type": "python",
+				"configurationAttributes": {
+					"attach": {
+						"properties": {
+							"MayaDebugFile": {
+								"type": "string",
+								"description": "Mayapy Debugger file path",
+								"default": "^\"\\${file}\""
+							}
+						}
+					}
+				}
+			},
+			{
+				"type": "maya",
+				"label": "Maya Debug",
+				"configurationSnippets": [
+					{
+						"label": "Maya Python Debugger : Remote Attach",
+						"description": "A debug configuration for attaching to a running maya program.",
+						"body": {
+							"type": "python",
+							"request": "attach",
+							"name": "${1:Maya Python Debugger : Remote Attach}",
+							"port": "^${2:5678}",
+							"host": "${3:localhost}",
+							"pathMappings": [
+								{
+									"localRoot": "^\"\\${fileDirname}\"",
+									"remoteRoot": "^\"\\${fileDirname}\""
+								}
+							],
+							"MayaDebugFile": "^\"\\${file}\""
+						}
+					}
+				]
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "mayapy ptvsd configuration",
+			"properties": {
+				"mayadebugger.port": {
+					"type": "integer",
+					"default": 5678,
+					"description": "The port over which to debug with ptvsd module."
+				},
+				"mayadebugger.hostname": {
+					"type": "string",
+					"default": "localhost",
+					"description": "The hostname of the machine which has a ptvsd instance running."
+				}
+			}
+		},
+		"keybindings": [
+			{
+				"command": "mayadebugger.debugpyFileForMaya2021AndBelow",
+				"key": "ctrl+alt+u",
+				"mac": "ctrl+alt+u",
+				"when": "editorTextFocus && editorLangId == 'python'"
+			},
+			{
+				"command": "mayadebugger.debugpyFileForMaya2022AndAbove",
+				"key": "ctrl+alt+y",
+				"mac": "ctrl+alt+y",
+				"when": "editorTextFocus && editorLangId == 'python'"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "mayadebugger.debugpyFileForMaya2022AndAbove",
+					"when": "editorTextFocus && editorLangId == 'python'",
+					"group": "navigation"
+				},
+				{
+					"command": "mayadebugger.debugpyFileForMaya2021AndBelow",
+					"when": "editorTextFocus && editorLangId == 'python'",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"extensionDependencies": []
+}
