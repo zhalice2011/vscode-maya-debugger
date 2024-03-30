@@ -59,6 +59,9 @@ commandPort -name "localhost:7001" -sourceType "mel" -echoOutput;
 
 ## Video Guide
 
+[![ow to Debug Maya Python in VS Code](assets//cover-image.jpg)](https://www.youtube.com/watch?v=mIKi2tZP0JM)
+
+
 ## Reference VSCode Plugins
   
 * [mayaCode](https://marketplace.visualstudio.com/items?itemName=magicstack.MagicPython) - A Visual Studio Code extension with support for coding for Maya.
