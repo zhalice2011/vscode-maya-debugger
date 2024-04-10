@@ -49,13 +49,13 @@ commandPort -name "localhost:7001" -sourceType "mel";
 ```mel
 commandPort -name "localhost:7001" -sourceType "mel" -echoOutput;
 ```
-![2.1](assets/1.1.gif)
+![2.1](assets/2.1.gif)
 
 #### 2.2 Start Debugger Listen: Right-click ->"Debug Current Python File in Maya (<=2021)"
-![2.2](assets/1.1.gif)
+![2.2](assets/2.2.gif)
 
 #### 3.3 Start Debugging:  Right-click ->"Debug Current Python File in Maya (<=2021)"
-![2.3](assets/1.1.gif)
+![2.3](assets/2.3.gif)
 
 ## Video Guide
 
