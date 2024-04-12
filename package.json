@@ -2,7 +2,7 @@
 	"name": "mayadebugger",
 	"displayName": "Debugger for Maya",
 	"description": "Debugging for Autodesk Maya",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
     "publisher": "zhalice2011",
     "repository": {
