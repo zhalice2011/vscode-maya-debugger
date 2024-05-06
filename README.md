@@ -39,7 +39,7 @@ commandPort -name "localhost:7001" -sourceType "mel";
 ```
 ![1.3](assets/1.3.gif)
 
-#### 1.3 Start Debugging:  Right-click ->"Debug Current Python File in Maya (>=2022)"
+#### 1.4 Start Debugging:  Right-click ->"Debug Current Python File in Maya (>=2022)"
 ![1.4](assets/1.4.gif)
 
 
